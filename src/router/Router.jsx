@@ -6,19 +6,29 @@ import ProductPage from '../pages/ProductPage'
 import ProductsPage from '../pages/ProductsPage'
 import SearchPage from '../pages/SearchPage'
 import IPhonePage from '../pages/IPhonePage'
+import PrivateRoutes from './PrivateRoutes'
+import PublicRoutes from './PublicRoutes'
+import NotFoundPage from '../pages/NotFoundPage'
 
 export default function Router() {
   return (
     <>
       <Routes>
-        <Route path="login" element={<LoginPage />} />
+        <Route
+          path="login"
+          element={
+            <PublicRoutes>
+              <LoginPage />
+            </PublicRoutes>
+          }
+        />
         <Route
           path="/"
           element={
-            <>
+            <PrivateRoutes>
               <Navbar />
               <Outlet />
-            </>
+            </PrivateRoutes>
           }
         >
           <Route path="/" element={<ProductsPage />} />
@@ -26,7 +36,7 @@ export default function Router() {
           <Route path="iphone" element={<IPhonePage />} />
           <Route path="product/:slug" element={<ProductPage />} />
           <Route path="search" element={<SearchPage />} />
-          <Route path="*" element={<h1>404 Not Found</h1>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </>
