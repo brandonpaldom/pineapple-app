@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .btn-sm {
+    @apply rounded-lg px-3 py-2 text-[0.875rem] font-semibold transition-colors duration-300;
+  }
+  .btn {
+    @apply rounded-lg px-3 py-2 font-semibold transition-colors duration-300;
+  }
+  .btn-primary {
+    @apply bg-blue-500 text-white shadow-lg shadow-blue-500/50;
+  }
+  .btn-secondary {
+    @apply bg-neutral-100 text-neutral-500 hover:bg-neutral-200;
+  }
+  .nav-link {
+    @apply rounded-lg px-3 py-2 text-[0.875rem] transition-colors duration-300 hover:bg-neutral-100;
+  }
+  .nav-link-active {
+    @apply bg-neutral-100;
+  }
+}
